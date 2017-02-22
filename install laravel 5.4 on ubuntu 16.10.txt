@@ -1,0 +1,53 @@
+// basic stuff install
+sudo apt-get install git
+sudo apt-get install unzip
+
+// LAMP
+sudo apt-get install tasksel
+sudo tasksel install lamp-server
+
+// CURL + Composer
+sudo apt-get install curl php-curl php-mcrypt php-mbstring php-gettext
+
+// enable mods
+sudo phpenmod mcrypt
+sudo phpenmod mbstring
+sudo a2enmod rewrite
+sudo systemctl restart apache2
+
+curl -sS https://getcomposer.org/installer | php
+sudo mv composer.phar /usr/local/bin/composer
+
+//install phpmyadmin
+sudo apt-get install phpmyadmin 	
+		# later accessible through localhost/phpmyadmin
+		
+ //Creating Laravel Project
+cd /var/www/html/
+sudo composer create-project laravel/laravel kalavel --prefer-dist
+sudo chmod -R 777 kalavel
+
+//Creating Virtual Host kalavel.dev
+sudo leafpad /etc/apache2/sites-available/kalavel.dev.conf
+
+#/etc/apache2/sites-available/kalavel.dev.conf contains following lines
+<VirtualHost *:80>
+		ServerName kalavel.dev
+		DocumentRoot /var/www/html/kalavel/public
+
+		<Directory /var/www/html/kalavel/public>
+			AllowOverride All
+			Require all granted
+		</Directory>
+</VirtualHost>
+			
+// enable that site
+sudo a2ensite kalavel.dev
+service apache2 reload
+
+// fix hosts file	
+sudo leafpad /etc/hosts
+
+            #/etc/hosts contents following lines                                
+            127.0.0.1       kalavel.dev
+
