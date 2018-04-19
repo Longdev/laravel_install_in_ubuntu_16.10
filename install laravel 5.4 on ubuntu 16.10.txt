@@ -28,11 +28,11 @@ sudo composer create-project laravel/laravel kalavel --prefer-dist
 sudo chmod -R 777 kalavel
 
 //Creating Virtual Host kalavel.dev
-sudo atom /etc/apache2/sites-available/kalavel.dev.conf
+sudo atom /etc/apache2/sites-available/allapp.pro.conf
 
-#/etc/apache2/sites-available/kalavel.dev.conf contains following lines
+#/etc/apache2/sites-available/allapp.pro.conf contains following lines
 <VirtualHost *:80>
-		ServerName kalavel.dev
+		ServerName in.dev
 		DocumentRoot /var/www/html/kalavel/public
 
 		<Directory /var/www/html/kalavel/public>
@@ -42,7 +42,7 @@ sudo atom /etc/apache2/sites-available/kalavel.dev.conf
 </VirtualHost>
 			
 // enable that site
-sudo a2ensite kalavel.dev
+sudo a2ensite allapp.pro
 service apache2 reload
 
 // fix hosts file	
@@ -50,4 +50,9 @@ sudo atom /etc/hosts
 
             #/etc/hosts contents following lines                                
             127.0.0.1       kalavel.dev
+	    127.0.0.1       kalavel.pro
+127.0.0.1       3ct.pro
+127.0.0.1       inonepage.pro
+127.0.0.1       menghack.pro
+127.0.0.1       dentist.pro
 
