@@ -28,7 +28,7 @@ sudo composer create-project laravel/laravel kalavel --prefer-dist
 sudo chmod -R 777 kalavel
 
 //Creating Virtual Host kalavel.dev
-sudo leafpad /etc/apache2/sites-available/kalavel.dev.conf
+sudo atom /etc/apache2/sites-available/kalavel.dev.conf
 
 #/etc/apache2/sites-available/kalavel.dev.conf contains following lines
 <VirtualHost *:80>
@@ -46,7 +46,7 @@ sudo a2ensite kalavel.dev
 service apache2 reload
 
 // fix hosts file	
-sudo leafpad /etc/hosts
+sudo atom /etc/hosts
 
             #/etc/hosts contents following lines                                
             127.0.0.1       kalavel.dev
